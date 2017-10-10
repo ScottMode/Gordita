@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 namespace MazeGen
 {
-    class Program
+    /*class Program
     {
         const int SIZE_OF_MAZE = 5;
         static void Main(string[] args)
@@ -159,6 +159,7 @@ namespace MazeGen
             File.WriteAllText("test.txt", export);
         }
     }
+    */
 }
 
 /*

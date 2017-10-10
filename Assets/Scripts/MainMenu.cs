@@ -6,58 +6,25 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+	#region Fields
+	//Assigned
+	public SearchListPanel searchPanel;
+	public GameObject mainPanel;
+	public NetworkManager networkMan;
+
+	//Matchmaking
 	List<MatchInfoSnapshot> matchList = new List<MatchInfoSnapshot>();
 	bool matchCreated;
 	NetworkMatch networkMatch;
-
-	public SearchListPanel searchPanel;
-
-	public LevelBuilder builder;
-
-	public NetworkManager networkMan;
-    int matchCount;
-
 	MatchInfo currentMatch;
+	int matchCount;
+	#endregion
 
 	void Awake()
 	{
 		networkMatch = gameObject.AddComponent<NetworkMatch>();
 
         ListRooms();
-	}
-
-	public void CreateRoom()
-	{
-		string matchName = string.Format("Maze_{0}", matchCount);
-		uint matchSize = 4;
-		bool matchAdvertise = true;
-		string matchPassword = "";
-
-		networkMatch.CreateMatch(matchName, matchSize, matchAdvertise, matchPassword, "", "", 0, 0, OnMatchCreate);
-	}
-
-	public void OnMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo)
-	{
-		if (success)
-		{
-			Debug.Log("Create match succeeded");
-			matchCreated = true;
-			NetworkServer.Listen(matchInfo, 9000);
-			Utility.SetAccessTokenForNetwork(matchInfo.networkId, matchInfo.accessToken);
-
-			//builder.gameObject.SetActive(true);
-
-			networkMan.StartHost(matchInfo);
-		}
-		else
-		{
-			Debug.LogError("Create match failed: " + extendedInfo);
-		}
-	}
-
-	public void ListRooms()
-	{
-		networkMatch.ListMatches(0, 20, "", true, 0, 0, OnMatchList);
 	}
 
 	public void OnMatchList(bool success, string extendedInfo, List<MatchInfoSnapshot> matches)
@@ -103,8 +70,6 @@ public class MainMenu : MonoBehaviour
 	{
 		Debug.Log("Connected!");
 
-		builder.gameObject.SetActive(true);
-
 		networkMan.StartClient(currentMatch);
 	}
 
@@ -112,4 +77,49 @@ public class MainMenu : MonoBehaviour
 	{
 		networkMatch.JoinMatch(info.networkId, "", "", "", 0, 0, OnMatchJoined);
 	}
+
+
+
+
+
+
+
+	public void OnMatchCreate(bool success, string extendedInfo, MatchInfo matchInfo)
+	{
+		if (success)
+		{
+			Debug.Log("Create match succeeded");
+			matchCreated = true;
+			NetworkServer.Listen(matchInfo, 9000);
+			Utility.SetAccessTokenForNetwork(matchInfo.networkId, matchInfo.accessToken);
+			networkMan.StartHost(matchInfo);
+
+			//Hide menu 
+			mainPanel.SetActive(false);
+
+			//Go to screen or something
+			//Look up to see if connect to it 
+		}
+		else
+		{
+			Debug.LogError("Create match failed: " + extendedInfo);
+		}
+	}
+
+	#region Button Functions
+	public void CreateRoom()
+	{
+		string matchName = string.Format("Maze_{0}", matchCount);
+		uint matchSize = 4;
+		bool matchAdvertise = true;
+		string matchPassword = "";
+
+		networkMatch.CreateMatch(matchName, matchSize, matchAdvertise, matchPassword, "", "", 0, 0, OnMatchCreate);
+	}
+
+	public void ListRooms()
+	{
+		//networkMatch.ListMatches(0, 20, "", true, 0, 0, OnMatchList);
+	}
+	#endregion
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MazeGen
 {
-    class Cell
+    /*class Cell
     {
         private int id;
         public List<Cell> connections;
@@ -25,5 +25,5 @@ namespace MazeGen
         {
             connections.Add(n);
         }
-    }
+    }*/
 }

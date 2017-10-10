@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
 	//private
 	private Dictionary<string, UnityEvent> eventDictionary = new Dictionary<string, UnityEvent>();
 
-	//Consts
+	//Constants
 	public const string e_PLAYER_FINISHED_MOVE = "PLAYER_FINISHED_MOVE";
 	public const string e_PLAYER_DOWN = "PLAYER_DOWN";
 	#endregion

@@ -14,7 +14,7 @@ public enum CardinalCoordinates
 
 public class GridTile : MonoBehaviour
 {
-	Player player;
+	/*Player player;
 
 	public List<WallGaze> sideWalls;
 
@@ -90,5 +90,5 @@ public class GridTile : MonoBehaviour
 	public void Reset()
 	{
 		ShowUi(false);
-	}
+	}*/
 }

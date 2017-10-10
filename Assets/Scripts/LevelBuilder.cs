@@ -5,7 +5,7 @@ using System.Linq;
 
 public class LevelBuilder : MonoBehaviour
 {
-	public GameObject tilePrefab, exitUiPrefab, playerStartGO;
+	/*public GameObject tilePrefab, exitUiPrefab, playerStartGO;
 	public Vector3 tileScale;
 
 	public TextAsset file;
@@ -147,5 +147,5 @@ public class LevelBuilder : MonoBehaviour
 		}
 
 		return neighbors;
-	}
+	}*/
 }

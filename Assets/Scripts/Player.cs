@@ -1,43 +1,57 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Created by Nelson Scott. 10.08.17
+/// </summary>
 public class Player : MonoBehaviour
 {
+	#region Fields
+	//Assigned
 	public float warpTime;
-	Vector3 startPos;
-	bool isMoving = false;
 
-	public GridTile currentTile;
+	//private
+	private Vector3 startPosition;
+	private Vector3 endPosition;
+	private bool isMoving = false;
+	#endregion
 
-	public GameObject rayBlocker;
+	#region Properties
+	public bool IsMoving { get { return isMoving; } }
+	#endregion
 
-	public void MoveTo(GridTile tile)
+	public void Setup(Vector3 position, Quaternion lookAt)
+	{
+		transform.position = position;
+		transform.rotation = lookAt;
+	}
+
+	/// <summary>
+	/// <Moves player to position specified>
+	/// </summary>
+	/// <param name="tile">Tile.</param>
+	public void MoveToPosition(Vector3 pos)
 	{
 		if(isMoving)
 		{
-			Debug.LogWarning("Can't do that yet");
 			return;
 		}
 
 		isMoving = true;
 
-		currentTile.Reset();
-		currentTile = tile;
-
-		StartCoroutine(WarpLerp(new Vector3(tile.transform.position.x, 0, tile.transform.position.z)));
+		StartCoroutine(LerpToPosition(new Vector3(pos.x, 0, pos.z)));
 	}
-
-	IEnumerator WarpLerp(Vector3 pos)
+	IEnumerator LerpToPosition(Vector3 pos)
 	{
 		float timer = 0;
-		startPos = transform.position;
-		pos.y = startPos.y;
+		startPosition = transform.position;
+		pos.y = startPosition.y;
 
 		do
 		{
 			timer += Time.deltaTime;
 
-			transform.position = Vector3.Lerp(startPos, pos, timer / warpTime);
+			transform.position = Vector3.Lerp(startPosition, pos, timer / warpTime);
 
 			if (timer < warpTime)
 				yield return null;
@@ -46,14 +60,5 @@ public class Player : MonoBehaviour
 		} while (true);
 
 		isMoving = false;
-
-		currentTile.FinishMoveTo();
-	}
-
-	public void Setup(Vector3 position, Quaternion lookAt)
-	{
-		transform.position = position;
-
-		transform.rotation = lookAt;
 	}
 }

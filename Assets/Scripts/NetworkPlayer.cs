@@ -2,22 +2,35 @@
 using System.Collections;
 using UnityEngine.Networking;
 
+/// <summary>
+/// Created by Nelson Scott. 10.08.17
+/// </summary>
 public class NetworkPlayer : NetworkBehaviour
 {
-	public Transform player;
+	#region Fields
+	//Assigned
+	public Transform playerTransform;
 	public SpriteRenderer sprite;
-
 	public float yOffset;
+	#endregion
+
+	#region Properties
+	//Empty
+	#endregion
 
 	void Start()
 	{
+		//Set transform using get tag if player isn't local network
 		if(!isLocalPlayer)
 		{
-			player = GameObject.FindGameObjectWithTag("Player").transform.GetChild(2);
+			playerTransform = GameObject.FindGameObjectWithTag("Player").transform.GetChild(2);
 		}
 	}
 
-	public override void OnStartLocalPlayer ()
+	/// <summary>
+	/// Sets up local player
+	/// </summary>
+	public override void OnStartLocalPlayer()
 	{
 		GameObject p = GameObject.FindGameObjectWithTag("Player");
 
@@ -27,16 +40,15 @@ public class NetworkPlayer : NetworkBehaviour
 
 		sprite.enabled = false;
 
-		p.GetComponent<Player>().rayBlocker.SetActive(false);
-
 		base.OnStartLocalPlayer();
 	}
 
 	void Update()
 	{
-		if(!isLocalPlayer && player != null)
+		//Checks to see if local network player, else shows icon
+		if(!isLocalPlayer && playerTransform != null)
 		{
-			if(transform.position == player.position)
+			if(transform.position == playerTransform.position)
 			{
 				sprite.enabled = false;
 			}
@@ -44,7 +56,7 @@ public class NetworkPlayer : NetworkBehaviour
 			{
 				sprite.enabled = true;
 
-				transform.LookAt(player, Vector3.up);
+				transform.LookAt(playerTransform, Vector3.up);
 			}
 		}
 	}
