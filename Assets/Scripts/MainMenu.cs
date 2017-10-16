@@ -31,10 +31,12 @@ public class MainMenu : MonoBehaviour
 	{
 		if (success && matches != null)
 		{
-			if(matches.Count > 0)
-				searchPanel.Setup(matches);
-			else
-				Debug.LogWarning("No matches found");
+			if (matches.Count > 0) {
+				Debug.Log ("there is a mtath");
+				searchPanel.Setup (matches);
+			} else {
+				Debug.LogWarning ("No matches found");
+			}
 		}
 		else
 		{
@@ -70,6 +72,8 @@ public class MainMenu : MonoBehaviour
 	{
 		Debug.Log("Connected!");
 
+		GameManager.Instance.SpawnPlayer ();
+
 		networkMan.StartClient(currentMatch);
 	}
 
@@ -97,8 +101,7 @@ public class MainMenu : MonoBehaviour
 			//Hide menu 
 			mainPanel.SetActive(false);
 
-			//Go to screen or something
-			//Look up to see if connect to it 
+			GameManager.Instance.SpawnPlayer ();
 		}
 		else
 		{
@@ -119,7 +122,7 @@ public class MainMenu : MonoBehaviour
 
 	public void ListRooms()
 	{
-		//networkMatch.ListMatches(0, 20, "", true, 0, 0, OnMatchList);
+		networkMatch.ListMatches(0, 20, "", true, 0, 0, OnMatchList);
 	}
 	#endregion
 }

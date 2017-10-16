@@ -30,8 +30,6 @@ public class InputManager : Singleton<InputManager>
 	/// <param name="data">Data.</param>
 	public void TeleportToClickPosition(BaseEventData data)
 	{
-		Debug.Log ("here");
-
 		PointerEventData pointerData = data as PointerEventData;
 		Vector3 worldPosition = pointerData.pointerCurrentRaycast.worldPosition;
 

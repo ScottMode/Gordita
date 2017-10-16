@@ -24,6 +24,8 @@ public class NetworkPlayer : NetworkBehaviour
 		if(!isLocalPlayer)
 		{
 			playerTransform = GameObject.FindGameObjectWithTag("Player").transform.GetChild(2);
+
+			transform.position = GameManager.Instance.spawnPoint.transform.position;
 		}
 	}
 
@@ -57,6 +59,8 @@ public class NetworkPlayer : NetworkBehaviour
 				sprite.enabled = true;
 
 				transform.LookAt(playerTransform, Vector3.up);
+
+				transform.position = new Vector3 (transform.position.x, 0, transform.position.z);
 			}
 		}
 	}

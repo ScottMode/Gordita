@@ -94,7 +94,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleIdentifier: com.craftbrewedgames.vrmaze
+  bundleIdentifier: com.scottmode.gordita
   bundleVersion: 0.1
   preloadedAssets: []
   metroEnableIndependentInputSource: 0
@@ -541,7 +541,7 @@ PlayerSettings:
   XboxOne::VR::enabledDevices: []
   iOS::VR::enabledDevices: []
   tvOS::VR::enabledDevices: []
-  cloudProjectId: d88a0ea7-e26f-4647-94ae-1ce66d5e9920
+  cloudProjectId: a4565927-4ed2-4772-a1bb-f5e607623960
   projectName: VR Maze
-  organizationId: craftbrewedgames
+  organizationId: scottmode
   cloudEnabled: 0

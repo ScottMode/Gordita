@@ -10,6 +10,8 @@ public class SearchListPanel : MonoBehaviour
 
 	public MainMenu main;
 
+	public List<string> matchNames = new List<string>();
+
 	// Use this for initialization
 	void Start () {
 	
@@ -32,15 +34,20 @@ public class SearchListPanel : MonoBehaviour
 	{
 		foreach(MatchInfoSnapshot match in matches)
 		{
-			GameObject newMatch = (GameObject)Instantiate(roomBtnPrefab, transform);
+			if (!matchNames.Contains (match.name)) 
+			{
+				GameObject newMatch = (GameObject)Instantiate (roomBtnPrefab, transform);
 
-			roomInfo room = newMatch.GetComponent<roomInfo>();
+				roomInfo room = newMatch.GetComponent<roomInfo> ();
 
-			room.label.text = match.name;
-			room.info = match;
+				room.label.text = match.name;
+				room.info = match;
 
-			newMatch.transform.localScale = Vector3.one;
-			newMatch.transform.localPosition = Vector3.zero;
+				newMatch.transform.localScale = Vector3.one;
+				newMatch.transform.localPosition = Vector3.zero;
+
+				matchNames.Add (match.name);
+			}
 		}
 	}
 

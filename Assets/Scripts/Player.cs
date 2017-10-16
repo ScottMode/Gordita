@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
 
 	public void Setup(Vector3 position, Quaternion lookAt)
 	{
-		transform.position = position;
+		transform.position = GameManager.Instance.spawnPoint.position;
 		transform.rotation = lookAt;
 	}
 
