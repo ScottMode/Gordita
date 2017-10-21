@@ -32,7 +32,6 @@ public class MainMenu : MonoBehaviour
 		if (success && matches != null)
 		{
 			if (matches.Count > 0) {
-				Debug.Log ("there is a mtath");
 				searchPanel.Setup (matches);
 			} else {
 				Debug.LogWarning ("No matches found");

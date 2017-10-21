@@ -26,6 +26,7 @@ public class GameManager : Singleton<GameManager>
 	//Constants
 	public const string e_PLAYER_FINISHED_MOVE = "PLAYER_FINISHED_MOVE";
 	public const string e_PLAYER_DOWN = "PLAYER_DOWN";
+	public const string e_PLAYER_FINISHED_MAZE = "PLAYER_FINISHED_MAZE";
 	#endregion
 
 	#region Properties
@@ -44,8 +45,16 @@ public class GameManager : Singleton<GameManager>
 	}
 
 	#region Game Setup
-	public void SpawnPlayer() {
+	public void SpawnPlayer() 
+	{
 		player.transform.position = spawnPoint.position;
+	}
+	#endregion
+
+	#region Game Events
+	public void PlayerFinished(string id) 
+	{
+		
 	}
 	#endregion
 }
