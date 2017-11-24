@@ -54,6 +54,10 @@ public class GameManager : Singleton<GameManager>
 	#region Game Events
 	public void PlayerFinished(string id) 
 	{
+		CheckAllPlayersFinished ();
+	}
+	private void CheckAllPlayersFinished()
+	{
 		
 	}
 	#endregion
