@@ -71,7 +71,14 @@ public class MainMenu : MonoBehaviour
 	{
 		Debug.Log("Connected!");
 
-		GameManager.Instance.SpawnPlayer ();
+		if (GameManager.Instance.isMonster)
+		{
+			
+		}
+		else
+		{
+			GameManager.Instance.SpawnPlayer ();
+		}
 
 		networkMan.StartClient(currentMatch);
 	}
@@ -121,7 +128,7 @@ public class MainMenu : MonoBehaviour
 
 	public void ListRooms()
 	{
-		networkMatch.ListMatches(0, 20, "", true, 0, 0, OnMatchList);
+		networkMatch.ListMatches (0, 20, "", true, 0, 0, OnMatchList);
 	}
 	#endregion
 }

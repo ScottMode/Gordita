@@ -21,7 +21,13 @@ public class InputManager : Singleton<InputManager>
 
 	void Update()
 	{
-		
+		if (GameManager.Instance.isMonster && Input.GetMouseButtonDown(0))
+		{
+			Vector3 mousePosition = new Vector3 (Input.mousePosition.x, Input.mousePosition.y, 0f);
+			Vector3 attackPosition = Camera.main.ScreenToWorldPoint (mousePosition);
+			attackPosition = new Vector3 (attackPosition.x, 0f, attackPosition.y);
+			GameManager.Instance.monster.Attack (attackPosition);
+		}
 	}
 
 	/// <summary>

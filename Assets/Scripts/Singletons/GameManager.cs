@@ -18,6 +18,8 @@ public class GameManager : Singleton<GameManager>
 	//Assigned
 	public Player player;
 	public Transform spawnPoint;
+	public bool isMonster;
+	public Monster monster;
 
 	//private
 	private Dictionary<string, UnityEvent> eventDictionary = new Dictionary<string, UnityEvent>();
@@ -48,6 +50,12 @@ public class GameManager : Singleton<GameManager>
 	public void SpawnPlayer() 
 	{
 		player.transform.position = spawnPoint.position;
+	}
+
+	public void SetupMonster()
+	{
+		Debug.LogError ("Setting up the mosnter");
+		monster.canAttack = true;
 	}
 	#endregion
 
