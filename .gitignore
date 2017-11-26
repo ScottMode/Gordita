@@ -30,6 +30,5 @@ sysinfo.txt
 # Builds
 /[Ee]xports
 *.apk
-Assets/3rd-Party/GoogleVR/Demos/Scripts/ScrollingUIDemo/PaginatedScrolling/PageProviders/IPageProvider.cs.meta
-Assets/3rd-Party/
 Assets/Plugins/iOS/
+Assets/3rd-Party/GoogleVR/Demos/Environment/cubeRoomDiffuse4096.psd
