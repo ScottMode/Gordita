@@ -16,15 +16,11 @@ public class Monster : NetworkBehaviour
 
 	void Start()
 	{
-		gameObject.SetActive (false);
+		
 	}
 
 	void Update()
 	{
-		if (isLocalPlayer)
-		{
-			return;
-		}
 
 		if (isAttacking && attackTimer > 0f)
 		{
@@ -44,6 +40,7 @@ public class Monster : NetworkBehaviour
 			gameObject.SetActive (true);
 			isAttacking = true;
 			transform.position = position;
+			GetComponent<NetworkTransform> ().transform.position = position;
 			attackTimer = attackMaxTime;
 
 			canAttack = false;
