@@ -179,27 +179,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1 &294640621 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010556649448, guid: 49f10e085a0e47a42b9b8352d4c3e9ee,
+--- !u!114 &294640622 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000010150065260, guid: 49f10e085a0e47a42b9b8352d4c3e9ee,
     type: 2}
   m_PrefabInternal: {fileID: 1963872213}
---- !u!114 &294640622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 294640621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07244229a11fe0a46a587bbbb120132e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAttacking: 0
-  attackMaxTime: 5
-  canAttack: 1
-  attackRechargeTimer: 0
-  attackRechargeMaxTime: 10
 --- !u!1 &368356024
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +293,7 @@ MonoBehaviour:
   m_LogLevel: 2
   m_PlayerPrefab: {fileID: 1000011257864322, guid: 374bbf5019dbf4651b804dc7e199ede4,
     type: 2}
-  m_AutoCreatePlayer: 1
+  m_AutoCreatePlayer: 0
   m_PlayerSpawnMethod: 1
   m_OfflineScene: 
   m_OnlineScene: 
@@ -627,6 +612,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c747976e199f79b4a83ff0224f2db835, type: 3}
       propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: c747976e199f79b4a83ff0224f2db835, type: 3}
+      propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -998,7 +987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomBtnPrefab: {fileID: 1000010426674648, guid: 9d16d67d13588430e905067b89abb5e9,
     type: 2}
-  main: {fileID: 0}
+  main: {fileID: 1374166692}
   matchNames: []
 --- !u!1 &1374166687
 GameObject:
@@ -1122,7 +1111,7 @@ GameObject:
   - 114: {fileID: 1499851604}
   - 114: {fileID: 1499851603}
   m_Layer: 0
-  m_Name: Search - Button
+  m_Name: Create - Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1186,7 +1175,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1256311811}
+      - m_Target: {fileID: 644754662}
         m_MethodName: SetActive
         m_Mode: 6
         m_Arguments:
@@ -1209,7 +1198,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1374166692}
-        m_MethodName: ListRooms
+        m_MethodName: CreateRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1403,7 +1392,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Search Available Matches
+  m_Text: Create Session
 --- !u!222 &1967116303
 CanvasRenderer:
   m_ObjectHideFlags: 0

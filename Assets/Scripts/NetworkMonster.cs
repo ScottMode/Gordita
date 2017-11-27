@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 /// <summary>
 /// Created by Nelson Scott. 10.08.17
 /// </summary>
-public class NetworkPlayer : NetworkBehaviour
+public class NetworkMonster : NetworkBehaviour
 {
 	#region Fields
 	//Assigned
@@ -21,7 +21,7 @@ public class NetworkPlayer : NetworkBehaviour
 	void Start()
 	{
 		//Set transform using get tag if player isn't local network
-		if(!isLocalPlayer && !GameManager.Instance.isMonster)
+		if(!isLocalPlayer)
 		{
 			playerTransform = GameObject.FindGameObjectWithTag("Player").transform.GetChild(2);
 

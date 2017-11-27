@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class Monster : MonoBehaviour 
+public class Monster : NetworkBehaviour
 {
 	#region Fields
 	public bool isAttacking;
@@ -16,11 +17,15 @@ public class Monster : MonoBehaviour
 	void Start()
 	{
 		gameObject.SetActive (false);
-		canAttack = false;
 	}
 
 	void Update()
 	{
+		if (isLocalPlayer)
+		{
+			return;
+		}
+
 		if (isAttacking && attackTimer > 0f)
 		{
 			attackTimer -= Time.deltaTime;
@@ -30,25 +35,12 @@ public class Monster : MonoBehaviour
 				attackTimer = 0f;
 			}
 		}
-
-		//Recharge
-		if (!canAttack && attackRechargeTimer > 0f)
-		{
-			attackRechargeTimer -= Time.deltaTime;
-			if (attackRechargeTimer <= 0f)
-			{
-				canAttack = true;
-				attackRechargeTimer = 0f;
-			}
-		}
 	}
 
 	public void Attack(Vector3 position)
 	{
 		if (canAttack) 
 		{
-			Debug.LogError ("Attack!: " + position);
-
 			gameObject.SetActive (true);
 			isAttacking = true;
 			transform.position = position;
@@ -62,15 +54,15 @@ public class Monster : MonoBehaviour
 	{
 		gameObject.SetActive (false);
 		isAttacking = false;
-
-		attackRechargeTimer = attackRechargeMaxTime;
+		canAttack = true;
+		attackTimer = attackMaxTime;
 	}
 
 	void OnTriggerEnter(Collider col)
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			FinishAttack ();
+			//FinishAttack ();
 
 			//Down player
 		}

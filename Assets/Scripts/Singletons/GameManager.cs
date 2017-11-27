@@ -54,7 +54,6 @@ public class GameManager : Singleton<GameManager>
 
 	public void SetupMonster()
 	{
-		Debug.LogError ("Setting up the mosnter");
 		monster.canAttack = true;
 	}
 	#endregion

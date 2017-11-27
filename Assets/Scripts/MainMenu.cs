@@ -73,7 +73,7 @@ public class MainMenu : MonoBehaviour
 
 		if (GameManager.Instance.isMonster)
 		{
-			
+			GameManager.Instance.SetupMonster ();
 		}
 		else
 		{
@@ -107,7 +107,14 @@ public class MainMenu : MonoBehaviour
 			//Hide menu 
 			mainPanel.SetActive(false);
 
-			GameManager.Instance.SpawnPlayer ();
+			if (GameManager.Instance.isMonster)
+			{
+				GameManager.Instance.SetupMonster ();
+			}
+			else
+			{
+				GameManager.Instance.SpawnPlayer ();
+			}
 		}
 		else
 		{
