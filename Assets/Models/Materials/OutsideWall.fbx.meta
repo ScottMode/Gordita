@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: c747976e199f79b4a83ff0224f2db835
-timeCreated: 1507691489
-licenseType: Pro
+guid: 52bca7cddb38b674e8ced42705024d00
+timeCreated: 1511755086
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: pPlane7
-    100004: pPlane8
     400000: //RootNode
-    400002: pPlane7
-    400004: pPlane8
-    2300000: pPlane7
-    2300002: pPlane8
-    3300000: pPlane7
-    3300002: pPlane8
-    4300000: pPlane7
-    4300002: pPlane8
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: polySurface7
+    9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -75,7 +69,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
