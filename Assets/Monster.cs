@@ -6,7 +6,7 @@ public class Monster : NetworkBehaviour
 {
 	#region Fields
 	public bool isAttacking;
-	float attackTimer;
+	public float attackTimer;
 	public float attackMaxTime;
 
 	public bool canAttack;
