@@ -16,7 +16,7 @@ public class MazeFinishTrigger : MonoBehaviour {
 		{
 			//Call method to add to list of finished players
 			Debug.LogError("id is: " + col.gameObject.GetComponent<NetworkPlayer>().playerControllerId);
-			GameManager.Instance.PlayerFinished (col.gameObject.GetComponent<NetworkPlayer> ().playerControllerId.ToString());
+			GameManager.Instance.PlayerFinished (col.gameObject.GetComponent<NetworkPlayer> ());
 		}
 	}
 }

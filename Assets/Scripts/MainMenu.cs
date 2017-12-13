@@ -12,6 +12,9 @@ public class MainMenu : MonoBehaviour
 	public GameObject mainPanel;
 	public NetworkManager networkMan;
 
+	public GameObject downPanel;
+	public GameObject winPanel;
+
 	//Matchmaking
 	List<MatchInfoSnapshot> matchList = new List<MatchInfoSnapshot>();
 	bool matchCreated;
@@ -138,4 +141,14 @@ public class MainMenu : MonoBehaviour
 		networkMatch.ListMatches (0, 20, "", true, 0, 0, OnMatchList);
 	}
 	#endregion
+
+	public void ShowWinPanel()
+	{
+		winPanel.SetActive(true);
+	}
+
+	public void ShowDownPanel(bool isDown)
+	{
+		downPanel.SetActive (isDown);
+	}
 }

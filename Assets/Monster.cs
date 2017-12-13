@@ -59,9 +59,9 @@ public class Monster : NetworkBehaviour
 	{
 		if (col.gameObject.tag == "Player")
 		{
-			//FinishAttack ();
+			FinishAttack ();
 
-			//Down player
+			col.gameObject.GetComponent<NetworkPlayer> ().DownPlayer ();
 		}
 	}
 }

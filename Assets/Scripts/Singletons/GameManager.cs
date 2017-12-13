@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
 	public Transform spawnPoint;
 	public bool isMonster;
 	public Monster monster;
+	public MainMenu menu;
 
 	//private
 	private Dictionary<string, UnityEvent> eventDictionary = new Dictionary<string, UnityEvent>();
@@ -59,9 +60,12 @@ public class GameManager : Singleton<GameManager>
 	#endregion
 
 	#region Game Events
-	public void PlayerFinished(string id) 
+	public void PlayerFinished(NetworkPlayer p) 
 	{
-		CheckAllPlayersFinished ();
+		if (!isMonster) {
+			menu.ShowWinPanel ();
+			p.Won ();
+		}
 	}
 	private void CheckAllPlayersFinished()
 	{
